@@ -1,1 +1,51 @@
-<p>procedures works!</p>
+<div class="container">
+
+    <h1 class="mt-3" i18n>Procedures</h1>
+
+    <div class="d-flex justify-content-end mt-4">
+        <a [routerLink]="['/procedures/add']" class="btn btn-warning" i18n>Add a new procedure</a>
+    </div>
+
+    <h2 class="mt-3" i18n>All available procedures:</h2>
+
+    <ng-container *ngIf="procedures$ | async as procedures">
+        <table class="table mt-3 table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th i18n>Name</th>
+                    <th i18n>Price</th>
+                    <th i18n>Info</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let procedure of procedures">
+                    <td>{{procedure.name}}</td>
+                    <td>{{procedure.price}}</td>
+                    <td>{{procedure.info}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </ng-container>
+
+    <h2 class="mt-3" i18n>Procedures with price below average:</h2>
+
+    <ng-container *ngIf="proceduresBelowAvg$ | async as proceduresBelowAvg">
+        <table class="table mt-3 table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th i18n>Name</th>
+                    <th i18n>Price</th>
+                    <th i18n>Info</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let procedure of proceduresBelowAvg">
+                    <td>{{procedure.name}}</td>
+                    <td>{{procedure.price}}</td>
+                    <td>{{procedure.info}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </ng-container>
+
+</div>

@@ -7,10 +7,11 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './core/components/header/header.component';
 import { FooterComponent } from './core/components/footer/footer.component';
 import { HomeComponent } from './features/home/home.component';
-import { AminalsComponent } from './features/aminals/aminals.component';
 import { StaffComponent } from './features/staff/staff.component';
 import { ProceduresComponent } from './features/procedures/procedures.component';
 import { AnimalsComponent } from './features/animals/animals.component';
+import { AddProcedureComponent } from './features/add-procedure/add-procedure.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,15 +19,16 @@ import { AnimalsComponent } from './features/animals/animals.component';
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    AminalsComponent,
     StaffComponent,
     ProceduresComponent,
-    AnimalsComponent
+    AnimalsComponent,
+    AddProcedureComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

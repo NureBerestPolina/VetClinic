@@ -1,1 +1,29 @@
-<p>animals works!</p>
+<div class="container">
+
+    <h1 class="mt-3" i18n>Animals registered in the system</h1>
+
+    <ng-container *ngIf="animals$ | async as animals">
+        <table class="table mt-3 table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th i18n>Name</th>
+                    <th i18n>Species</th>
+                    <th i18n>Breed</th>
+                    <th i18n>Date of birth</th>
+                    <th i18n>Owner</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let animal of animals">
+                    <td>{{animal.name}}</td>
+                    <td>{{animal.species}}</td>
+                    <td>{{animal.breed}}</td>
+                    <td>{{animal.dateOfBirth | date}}</td>
+                    <td>{{animal.owner.firstName}} {{animal.owner.lastName}}, <br>
+                    {{animal.owner.email}}, {{animal.owner.phone}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </ng-container>
+</div>
+

@@ -4,6 +4,7 @@ import { HomeComponent } from './features/home/home.component';
 import { StaffComponent } from './features/staff/staff.component';
 import { ProceduresComponent } from './features/procedures/procedures.component';
 import { AnimalsComponent } from './features/animals/animals.component';
+import { AddProcedureComponent } from './features/add-procedure/add-procedure.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path:'animals',
     component: AnimalsComponent
+  },
+  {
+    path:'procedures/add',
+    component: AddProcedureComponent
   },
 ];
 
