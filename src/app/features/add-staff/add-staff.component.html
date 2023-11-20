@@ -1,0 +1,131 @@
+<div class="container">
+    <ng-container *ngIf="model">
+        <h1 class="mt-3" i18n>Add a new staff member</h1>
+
+        <form #form="ngForm" (ngSubmit)="onFormSubmit()">
+            <div class="mt-2">
+                <div class="mt-5">               
+                        <span class="p-float-label">
+                            <label for="firstName" i18n>First name: </label>
+                            <input id="firstName" name="firstName"
+                             rows="5" [(ngModel)]="model.firstName" 
+                             class="col-12" pInputText  required #firstNameField="ngModel"
+                             minlength="2" maxlength="100">
+                           
+                        </span>
+    
+                        <div *ngIf="firstNameField.invalid && (firstNameField.dirty || firstNameField.touched)">
+                          <div *ngIf="firstNameField?.errors?.['required']" class="alert alert-danger col-12" i18n>
+                            First name is required.
+                          </div>
+                          <div *ngIf="firstNameField?.errors?.['minlength']" class="alert alert-danger col-12" i18n>
+                            First name should have at least 2 characters.
+                          </div>
+                          <div *ngIf="firstNameField?.errors?.['maxlength']" class="alert alert-danger col-12" i18n>
+                            First name maximum size is 100 characters.
+                          </div>
+                        </div>
+                </div>
+
+                <div class="mt-3">               
+                    <span class="p-float-label">
+
+                        <label for="lastName" i18n>Last name: </label>
+                        <input id="lastName" name="lastName"
+                         rows="5" [(ngModel)]="model.lastName" 
+                         class="col-12" pInputText  required #lastNameField="ngModel"
+                         minlength="2" maxlength="100">
+                        
+                    </span>
+
+                    <div *ngIf="lastNameField.invalid && (lastNameField.dirty || lastNameField.touched)">
+                      <div *ngIf="lastNameField?.errors?.['required']" class="alert alert-danger col-12" i18n>
+                        Last name is required.
+                      </div>
+                      <div *ngIf="lastNameField?.errors?.['minlength']" class="alert alert-danger col-12" i18n>
+                        Last name should have at least 2 characters.
+                      </div>
+                      <div *ngIf="lastNameField?.errors?.['maxlength']" class="alert alert-danger col-12" i18n>
+                        Last name maximum size is 100 characters.
+                      </div>
+                    </div>
+            </div>
+
+            <div class="mt-3">               
+                <span class="p-float-label">
+
+                    <label for="specialtyName" i18n>Specialty: </label>
+                    <input id="specialtyName" name="specialtyName"
+                     rows="5" [(ngModel)]="model.specialtyName" 
+                     class="col-12" pInputText  required #specialtyField="ngModel"
+                     minlength="2" maxlength="100">
+                    
+                </span>
+
+                <div *ngIf="specialtyField.invalid && (specialtyField.dirty || specialtyField.touched)">
+                  <div *ngIf="specialtyField?.errors?.['required']" class="alert alert-danger col-12" i18n>
+                    Specialty is required.
+                  </div>
+                  <div *ngIf="specialtyField?.errors?.['minlength']" class="alert alert-danger col-12" i18n>
+                   Specialty should have at least 2 characters.
+                  </div>
+                  <div *ngIf="specialtyField?.errors?.['maxlength']" class="alert alert-danger col-12" i18n>
+                    Specialty maximum size is 100 characters.
+                  </div>
+                </div>
+             </div>
+
+            <div class="mt-3 col-12">
+                <span class="p-float-label">
+
+                    <label htmlFor="email" i18n>Email: </label>
+                    <input pInputText type="email" id="email" name="email" [(ngModel)]="model.email" class="col-12"
+                    required email #emailField="ngModel" />
+                  
+                </span>
+
+                <div *ngIf="emailField.invalid && (emailField.dirty || emailField.touched)">
+                  <div *ngIf="emailField?.errors?.['required']" class="alert alert-danger col-12" i18n>
+                    Email is required.
+                  </div>
+                  <div *ngIf="emailField?.errors?.['email']" class="alert alert-danger col-12" i18n>
+                    Invalid email address.
+                  </div>
+                </div>
+            </div>
+
+            <div class="mt-3 col-12">
+                <span class="p-float-label">
+
+                    <label htmlFor="phone" i18n>Phone number: </label>
+                    <input pInputText type="tel" id="phone" name="phone" [(ngModel)]="model.phone" class="col-12"
+                    required #phoneField="ngModel" />
+                  
+                </span>
+
+                <div *ngIf="phoneField.invalid && (phoneField.dirty || phoneField.touched)">
+                  <div *ngIf="phoneField?.errors?.['required']" class="alert alert-danger col-12" i18n>
+                    Phone number is required.
+                  </div>
+                  <div *ngIf="emailField?.errors?.['phone']" class="alert alert-danger col-12" i18n>
+                    Invalid phone number.
+                  </div>
+                </div>
+            </div>
+
+                <div class="mt-5 mb-5 d-flex justify-content-end">
+                    <button type="submit" class="btn btn-success" 
+                    [disabled]="emailField.invalid || 
+                    lastNameField.invalid || 
+                    firstNameField.invalid || 
+                    phoneField.invalid || 
+                    specialtyField.invalid" 
+                    i18n>Add</button>
+    
+                </div>
+            </div>
+        </form>
+
+    </ng-container>
+</div>
+

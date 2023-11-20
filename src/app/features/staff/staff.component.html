@@ -1,1 +1,31 @@
-<p>staff works!</p>
+<div class="container">
+
+    <h1 class="mt-3" i18n>Animals registered in the system</h1>
+
+    <div class="d-flex justify-content-end mt-4">
+        <a [routerLink]="['/staff/add']" class="btn btn-warning" i18n>Add staff to the clinic personnel</a>
+    </div>
+
+    <h2 class="mt-3" i18n>Staff employed:</h2>
+
+    <ng-container *ngIf="staff$ | async as staff">
+        <table class="table mt-3 table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th i18n>Full name</th>
+                    <th i18n>Specialty</th>
+                    <th i18n>Phone number</th>
+                    <th i18n>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let doctor of staff">
+                    <td>{{doctor.firstName}} {{doctor.lastName}}</td>
+                    <td>{{doctor.specialty.name}}</td>
+                    <td>{{doctor.phone}}</td>
+                    <td>{{doctor.email}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </ng-container>
+</div>

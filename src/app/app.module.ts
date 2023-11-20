@@ -12,6 +12,7 @@ import { ProceduresComponent } from './features/procedures/procedures.component'
 import { AnimalsComponent } from './features/animals/animals.component';
 import { AddProcedureComponent } from './features/add-procedure/add-procedure.component';
 import { FormsModule } from '@angular/forms';
+import { AddStaffComponent } from './features/add-staff/add-staff.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { FormsModule } from '@angular/forms';
     StaffComponent,
     ProceduresComponent,
     AnimalsComponent,
-    AddProcedureComponent
+    AddProcedureComponent,
+    AddStaffComponent
   ],
   imports: [
     BrowserModule,
