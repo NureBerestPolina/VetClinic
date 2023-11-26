@@ -34,7 +34,7 @@ export class AddStaffComponent {
           this.router.navigate(['/staff']);
         },
         error: (error) => {
-          console.error('error', error);
+          alert(error.error);
         },
       });
   }

@@ -32,7 +32,7 @@ export class AddProcedureComponent {
           this.router.navigate(['/procedures']);
         },
         error: (error) => {
-          console.error('error', error);
+          alert('ДОДАВАННЯ ПРОЦЕДУР У ВИХІДНІ ЗАБОРОНЕНО');
         },
       });
   }
