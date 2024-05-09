@@ -27,7 +27,12 @@
         </table>
     </ng-container>
 
-    <h2 class="mt-3" i18n>Procedures with price below average:</h2>
+    <h2 class="mt-3" i18n>Procedures with price below average: {{proceduresWithPriceBelowAvgCount}}</h2>
+
+    <form (ngSubmit)="submitForm()">
+        <input type="number" [(ngModel)]="priceInput" name="priceInput" placeholder="Enter the price">
+        <button type="submit">Get procedures thar are cheaper than this one!</button>
+    </form>
 
     <ng-container *ngIf="proceduresBelowAvg$ | async as proceduresBelowAvg">
         <table class="table mt-3 table-bordered table-striped">
